@@ -18,5 +18,7 @@ app.use("/api/users",userRoutes)
 app.use(notFound);
 app.use(errorHandler);
 
-
+if(process.env.NODE_ENV=='production'){
+    app.use(express.static('../frontend/build'))
+}
 app.listen(Port,console.log(`server is running  in ${process.env.NODE_ENV}at port ${Port}`))
