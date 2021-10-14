@@ -17,7 +17,7 @@ export const authUser = async (req, res) => {
 
     if (user && (await user.matchPassword(password))) {
       console.log("password matched");
-      res.json({
+      res.status(200).json({
         isAdmin: user.isAdmin,
         _id: user._id,
         name: user.name,
@@ -47,7 +47,7 @@ export const registerUser = async (req, res) => {
     if (userExists) {
       res.status(400);
       throw new Error("User already exists");
-    } else {
+    } else {                                                                   
       const user = await User.create({
         name,
         email,

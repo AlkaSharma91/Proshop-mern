@@ -13,7 +13,7 @@ const orderSchema=mongoose.Schema(
             image:{type:String,require:true},
             price:{type:Number,require:true},
             product:{
-                type:mpngoose.Schema.type.ObjectId,
+                type:mongoose.Schema.type.ObjectId,
                 required:true,
                 ref:'Product'
             },
